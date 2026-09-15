@@ -22,7 +22,7 @@
   "dependencies": {
     "@base-ui/react": "^1.8.0",
     "@fastify/cookie": "^11.0.0",
-    "@fastify/static": "^8.0.0",
+    "@fastify/static": "^10.1.3",
     "@fontsource/ibm-plex-mono": "^5.0.0",
     "@fontsource/ibm-plex-sans": "^5.0.0",
     "@node-rs/argon2": "^2.0.0",
