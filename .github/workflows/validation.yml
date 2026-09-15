@@ -1,0 +1,26 @@
+name: Resource and recovery validation
+on:
+  workflow_dispatch:
+    inputs:
+      seconds:
+        description: Scheduled baseline duration (at least 600 seconds)
+        type: number
+        default: 660
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run disposable workload, restart and restore drills
+        env:
+          VALIDATION_SECONDS: ${{ inputs.seconds }}
+        run: scripts/validation/run.sh "$VALIDATION_SECONDS" test-results/validation
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resource-and-recovery-validation
+          path: test-results/validation
+          retention-days: 7

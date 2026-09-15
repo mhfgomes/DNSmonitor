@@ -1,0 +1,123 @@
+version: "3.8"
+x-app-env: &app-env
+  DATABASE_HOST: mariadb
+  DATABASE_PASSWORD_FILE: /run/secrets/database-password
+  ENCRYPTION_KEY_FILE: /run/secrets/encryption-key
+  PUBLIC_URL: ${PUBLIC_URL:-http://localhost:3000}
+  COOKIE_SECURE: ${COOKIE_SECURE:-false}
+  RUN_MIGRATIONS: "true"
+  BOOTSTRAP_TIMEOUT_SECONDS: "300"
+  METRICS_ENABLED: ${METRICS_ENABLED:-true}
+  METRICS_HOST: ${METRICS_HOST:-127.0.0.1}
+  WORKER_CONCURRENCY: ${WORKER_CONCURRENCY:-2}
+  RETENTION_ENABLED: ${RETENTION_ENABLED:-true}
+  RETENTION_CHECK_HOURS: ${RETENTION_CHECK_HOURS:-24}
+  RETENTION_SUMMARY_DAYS: ${RETENTION_SUMMARY_DAYS:-90}
+  RETENTION_EVENT_DAYS: ${RETENTION_EVENT_DAYS:-30}
+  RETENTION_INCIDENT_DAYS: ${RETENTION_INCIDENT_DAYS:-90}
+  RETENTION_DELIVERY_DAYS: ${RETENTION_DELIVERY_DAYS:-30}
+  RETENTION_AUDIT_DAYS: ${RETENTION_AUDIT_DAYS:-90}
+  RETENTION_BATCH_SIZE: ${RETENTION_BATCH_SIZE:-250}
+  RETENTION_INTERVAL_SECONDS: ${RETENTION_INTERVAL_SECONDS:-60}
+x-app: &app
+  image: ${DNSMONITOR_IMAGE:?Set DNSMONITOR_IMAGE to a published image tag or digest}
+  user: "1000:1000"
+  read_only: true
+  cap_drop: [ALL]
+  stop_grace_period: 45s
+  networks: [backend, egress]
+  secrets:
+    - source: database_password
+      target: database-password
+      uid: "1000"
+      gid: "1000"
+      mode: 0400
+    - source: encryption_key
+      target: encryption-key
+      uid: "1000"
+      gid: "1000"
+      mode: 0400
+  healthcheck:
+    test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:'+(process.env.RUNTIME_ROLE==='worker'?3001:3000)+'/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+    interval: 10s
+    timeout: 3s
+    retries: 3
+    start_period: 5m
+services:
+  app:
+    <<: *app
+    environment:
+      <<: *app-env
+      RUNTIME_ROLE: ${APP_ROLE:-all}
+    ports:
+      - target: 3000
+        published: ${APP_PORT:-3000}
+        protocol: tcp
+        mode: ingress
+    deploy:
+      replicas: ${APP_REPLICAS:-1}
+      resources:
+        reservations: { memory: 96M }
+        limits: { memory: 512M }
+      update_config: { parallelism: 1, order: start-first, failure_action: pause, monitor: 6m }
+      rollback_config: { parallelism: 1, order: stop-first }
+      restart_policy: { condition: on-failure, delay: 5s }
+  worker:
+    <<: *app
+    environment:
+      <<: *app-env
+      RUNTIME_ROLE: worker
+    deploy:
+      replicas: ${WORKER_REPLICAS:-0}
+      resources:
+        reservations: { memory: 96M }
+        limits: { memory: 512M }
+      update_config: { parallelism: 1, order: start-first, failure_action: pause, monitor: 6m }
+      restart_policy: { condition: on-failure, delay: 5s }
+  mariadb:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: dnsmonitor
+      MARIADB_USER: dnsmonitor
+      MARIADB_PASSWORD_FILE: /run/secrets/database-password
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/database-root-password
+    secrets:
+      - source: database_password
+        target: database-password
+      - source: database_root_password
+        target: database-root-password
+    command: ["--innodb-buffer-pool-size=64M", "--max-connections=30", "--performance-schema=OFF"]
+    volumes: ["database:/var/lib/mysql"]
+    networks: [backend]
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    deploy:
+      replicas: 1
+      placement:
+        constraints: ["node.labels.dnsmonitor.database == true"]
+      resources:
+        reservations: { memory: 128M }
+        limits: { memory: 512M }
+      update_config: { parallelism: 1, order: stop-first, failure_action: pause }
+      restart_policy: { condition: on-failure, delay: 5s }
+secrets:
+  database_password:
+    external: true
+    name: ${DATABASE_PASSWORD_SECRET:-dnsmonitor_database_password}
+  database_root_password:
+    external: true
+    name: ${DATABASE_ROOT_PASSWORD_SECRET:-dnsmonitor_database_root_password}
+  encryption_key:
+    external: true
+    name: ${ENCRYPTION_KEY_SECRET:-dnsmonitor_encryption_key}
+volumes:
+  database:
+networks:
+  backend:
+    driver: overlay
+    internal: true
+  egress:
+    driver: overlay

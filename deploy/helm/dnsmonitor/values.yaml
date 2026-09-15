@@ -1,0 +1,69 @@
+image:
+  repository: mhfgomes/dnsmonitor
+  tag: "0.1.0"
+  digest: ""
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+# Create this Secret before installation; the chart never generates credentials.
+# Keys: database-password, encryption-key, database-root-password (bundled DB only).
+existingSecret: dnsmonitor-secrets
+publicUrl: http://localhost:3000
+cookieSecure: false
+mode: combined # combined or split
+app:
+  replicas: 1
+  resources:
+    requests: { cpu: 100m, memory: 96Mi }
+    limits: { memory: 512Mi }
+worker:
+  replicas: 1 # used only in split mode
+  concurrency: 2
+  resources:
+    requests: { cpu: 100m, memory: 96Mi }
+    limits: { memory: 512Mi }
+database:
+  bundled: true
+  host: "" # required when bundled=false
+  port: 3306
+  name: dnsmonitor
+  user: dnsmonitor
+  image: mariadb:11.4
+  maxConnections: 30
+  storage:
+    size: 2Gi
+    storageClass: "" # cluster default; use '-' for an explicitly empty class
+    existingClaim: ""
+  resources:
+    requests: { cpu: 100m, memory: 128Mi }
+    limits: { memory: 512Mi }
+retention:
+  enabled: true
+  checkHours: 24
+  summaryDays: 90
+  eventDays: 30
+  incidentDays: 90
+  deliveryDays: 30
+  auditDays: 90
+  batchSize: 250
+  intervalSeconds: 60
+migration:
+  timeoutSeconds: 300
+  resources:
+    requests: { cpu: 50m, memory: 64Mi }
+    limits: { memory: 256Mi }
+service:
+  port: 3000
+ingress:
+  enabled: false
+  className: ""
+  host: ""
+  annotations: {}
+  tls: []
+networkPolicy:
+  enabled: false # restrict inbound DB access; DNS/notification egress stays open
+nodeSelector: {}
+tolerations: []
+
+metrics:
+  enabled: true
+  host: "127.0.0.1" # set 0.0.0.0 only for a trusted in-cluster scraper

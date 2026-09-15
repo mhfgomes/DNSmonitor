@@ -1,0 +1,114 @@
+{
+  "allResolversTimeoutRoundSeconds": 43.21,
+  "workerRecoverySeconds": 25.14,
+  "abandonedRuns": 2,
+  "databaseRecoverySeconds": 9.81,
+  "transitionDeltas": {
+    "BASELINE_ESTABLISHED": 0,
+    "INCIDENT_OPENED": 12,
+    "INCIDENT_RESOLVED": 12,
+    "VALUE_CHANGED": 26
+  },
+  "backupBytes": 402934,
+  "restoredTables": {
+    "alert_rules": {
+      "count": 1,
+      "sha256": "3ee74692511c6ab6631649aacd33693d9314ae5f0a3e69b5db67c9dc203fb5ed"
+    },
+    "audit_events": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "check_runs": {
+      "count": 344,
+      "sha256": "691e803d8ecf0134f8ce09b5cc1bf7bfd9945becc27d7ffab1077d568b20fa93"
+    },
+    "dns_events": {
+      "count": 63,
+      "sha256": "598e09679a73346a8d742d9f734c761aa71f24f58c17715f73ada6c092d62728"
+    },
+    "incidents": {
+      "count": 12,
+      "sha256": "0fc93efac3b9e1478f20b3f056a87d319a31c839267be95b2e0d92c12fe81457"
+    },
+    "login_limits": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "maintenance": {
+      "count": 1,
+      "sha256": "021c62ca391af3b88a843d511dfb5a6aaeb925f1bfaa4cb46d49f3ba16493feb"
+    },
+    "monitor_hourly": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "monitor_states": {
+      "count": 25,
+      "sha256": "2edcf3a87fc677747ba55f6844922bcf65f80f4b3c0b5a09d8334800e9285f54"
+    },
+    "monitors": {
+      "count": 25,
+      "sha256": "ac754f327eaf0f79996a1463f509aea0b9c13d2ef8be64e9a5509b2493f43273"
+    },
+    "notification_channels": {
+      "count": 1,
+      "sha256": "9c60f0769b7f5ec3df5e04449c98aaa613fab98ecc7b9c711d2915fcb9e40b3e"
+    },
+    "notification_deliveries": {
+      "count": 50,
+      "sha256": "235e7fbcbea537023a784b9bbd8d29f4f54d7565cedc1d09b12cede9e9457f81"
+    },
+    "notification_jobs": {
+      "count": 50,
+      "sha256": "f2a18c6aef2a2d2c4ec5bcf34b1096f5d4dd6ec809e87673d3935312bf2fdc11"
+    },
+    "resolver_groups": {
+      "count": 25,
+      "sha256": "4f5c880cc2d298a3987691c72ed6dacd7f2e9f72dab30ed674337287d6326498"
+    },
+    "resolvers": {
+      "count": 75,
+      "sha256": "3ce4e683a8b507bd4d926e1e5cf397d0489ab980d27dc066806e70980a9b2cfd"
+    },
+    "schema_migrations": {
+      "count": 6,
+      "sha256": "da7c3f2de51e98c3d863f71cbb07e72f25432783e6b320c3caa15cfd540326f4"
+    },
+    "sessions": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "users": {
+      "count": 1,
+      "sha256": "008d9b5cd4cbbf785a3500aabc68c3033e4c6fc5e48d1148723b2e46673d3633"
+    },
+    "workers": {
+      "count": 2,
+      "sha256": "8b4b5e8aef2618c364629b26cce33814844bb6d6459df770f4edbb570ccef1ee"
+    }
+  },
+  "restoredLoginAndEncryptedChannel": true,
+  "wrongEncryptionKeyRejected": true,
+  "checksAfterRestore": 367,
+  "memoryEvents": {
+    "app": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "mariadb": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    }
+  }
+}

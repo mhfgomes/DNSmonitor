@@ -1,0 +1,6 @@
+# Used only by the disposable backup/restore drill. The source volume is retained.
+services:
+  mariadb:
+    volumes: ["restored_database:/var/lib/mysql"]
+volumes:
+  restored_database:

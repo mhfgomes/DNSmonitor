@@ -1,0 +1,23 @@
+{{- if and .Values.networkPolicy.enabled .Values.database.bundled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "dnsmonitor.name" . }}-db
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/component: database
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/instance: {{ .Release.Name }}
+            matchExpressions:
+              - key: app.kubernetes.io/component
+                operator: In
+                values: [app, worker, migration]
+      ports:
+        - { protocol: TCP, port: 3306 }
+{{- end }}

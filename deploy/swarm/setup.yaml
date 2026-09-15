@@ -1,0 +1,16 @@
+# Optional first-admin browser setup. Merge after stack.yaml.
+version: "3.8"
+services:
+  app:
+    environment:
+      SETUP_TOKEN_FILE: /run/secrets/setup-token
+    secrets:
+      - source: setup_token
+        target: setup-token
+        uid: "1000"
+        gid: "1000"
+        mode: 0400
+secrets:
+  setup_token:
+    external: true
+    name: ${SETUP_TOKEN_SECRET:-dnsmonitor_setup_token}

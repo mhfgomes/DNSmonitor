@@ -1,0 +1,19 @@
+{
+  "name": "Example DNS changes",
+  "config": {
+    "hostname": "example.com",
+    "recordType": "A",
+    "mode": "WATCH",
+    "intervalSeconds": 300,
+    "timeoutMs": 3000,
+    "failureThreshold": 2,
+    "recoveryThreshold": 1,
+    "changeThreshold": 2,
+    "resolverIds": ["cloudflare", "google", "quad9"]
+  },
+  "resolvers": [
+    { "id": "cloudflare", "server": "1.1.1.1", "protocol": "UDP" },
+    { "id": "google", "server": "8.8.8.8", "protocol": "UDP" },
+    { "id": "quad9", "server": "9.9.9.9", "protocol": "UDP" }
+  ]
+}

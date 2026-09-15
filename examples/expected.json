@@ -1,0 +1,17 @@
+{
+  "name": "Internal API expected address",
+  "config": {
+    "hostname": "api.example.test",
+    "recordType": "A",
+    "mode": "EXPECTED",
+    "expected": ["192.0.2.10"],
+    "match": "EXACT",
+    "intervalSeconds": 300,
+    "timeoutMs": 3000,
+    "failureThreshold": 2,
+    "recoveryThreshold": 1,
+    "changeThreshold": 2,
+    "resolverIds": ["internal"]
+  },
+  "resolvers": [{ "id": "internal", "server": "192.0.2.53", "protocol": "UDP" }]
+}

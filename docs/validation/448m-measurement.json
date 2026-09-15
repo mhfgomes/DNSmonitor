@@ -1,0 +1,1271 @@
+{
+  "recordedAt": "2026-09-12T22:40:49.364784+00:00",
+  "summary": {
+    "durationSeconds": 660.43,
+    "completedChecks": 59,
+    "minChecksPerMonitor": 2,
+    "monitorsChecked": 25,
+    "latenessMs": {
+      "p50": 239.0,
+      "p95": 492.0,
+      "max": 502.0
+    },
+    "peakCombinedMemoryMiB": 158.85,
+    "meanCombinedCpuPercent": 5.586521739130434,
+    "peakCombinedCpuPercent": 16.59,
+    "databaseBytesBefore": 704512,
+    "databaseBytesAfter": 753664,
+    "app": {
+      "oomKilled": false,
+      "restarts": 0,
+      "memoryLimitBytes": 201326592,
+      "nanoCpus": 500000000,
+      "cgroupPeakMemoryBytes": 123342848
+    },
+    "mariadb": {
+      "oomKilled": false,
+      "restarts": 0,
+      "memoryLimitBytes": 268435456,
+      "nanoCpus": 500000000,
+      "cgroupPeakMemoryBytes": 143450112
+    },
+    "databaseDiskBytesAfter": 170835968
+  },
+  "samples": [
+    {
+      "seconds": 2.04,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.5,
+          "cpuPercent": 0.83
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.5,
+          "cpuPercent": 2.92
+        }
+      ]
+    },
+    {
+      "seconds": 17.1,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.35,
+          "cpuPercent": 0.51
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.2,
+          "cpuPercent": 0.36
+        }
+      ]
+    },
+    {
+      "seconds": 31.14,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.85,
+          "cpuPercent": 8.18
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 107.9,
+          "cpuPercent": 3.26
+        }
+      ]
+    },
+    {
+      "seconds": 45.18,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 49.08,
+          "cpuPercent": 0.74
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.5,
+          "cpuPercent": 3.12
+        }
+      ]
+    },
+    {
+      "seconds": 59.23,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 46.36,
+          "cpuPercent": 11.95
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.7,
+          "cpuPercent": 1.73
+        }
+      ]
+    },
+    {
+      "seconds": 73.28,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 46.88,
+          "cpuPercent": 0.87
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.4,
+          "cpuPercent": 2.94
+        }
+      ]
+    },
+    {
+      "seconds": 88.34,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.31,
+          "cpuPercent": 7.03
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.7,
+          "cpuPercent": 2.86
+        }
+      ]
+    },
+    {
+      "seconds": 102.38,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.45,
+          "cpuPercent": 6.97
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.6,
+          "cpuPercent": 2.77
+        }
+      ]
+    },
+    {
+      "seconds": 116.42,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.64,
+          "cpuPercent": 0.35
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.4,
+          "cpuPercent": 2.77
+        }
+      ]
+    },
+    {
+      "seconds": 130.47,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 46.83,
+          "cpuPercent": 5.51
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.7,
+          "cpuPercent": 1.64
+        }
+      ]
+    },
+    {
+      "seconds": 144.52,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.17,
+          "cpuPercent": 0.65
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.4,
+          "cpuPercent": 3.05
+        }
+      ]
+    },
+    {
+      "seconds": 159.58,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.63,
+          "cpuPercent": 7.67
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.2,
+          "cpuPercent": 2.91
+        }
+      ]
+    },
+    {
+      "seconds": 173.62,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.5,
+          "cpuPercent": 7.07
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.3,
+          "cpuPercent": 2.77
+        }
+      ]
+    },
+    {
+      "seconds": 188.68,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.39,
+          "cpuPercent": 0.5
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.7,
+          "cpuPercent": 3.07
+        }
+      ]
+    },
+    {
+      "seconds": 202.72,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.35,
+          "cpuPercent": 0.44
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.7,
+          "cpuPercent": 0.36
+        }
+      ]
+    },
+    {
+      "seconds": 217.77,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.59,
+          "cpuPercent": 0.53
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.3,
+          "cpuPercent": 0.58
+        }
+      ]
+    },
+    {
+      "seconds": 232.82,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.82,
+          "cpuPercent": 7.45
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.9,
+          "cpuPercent": 0.45
+        }
+      ]
+    },
+    {
+      "seconds": 247.86,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.83,
+          "cpuPercent": 6.97
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.5,
+          "cpuPercent": 2.3
+        }
+      ]
+    },
+    {
+      "seconds": 262.91,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.38,
+          "cpuPercent": 0.54
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.8,
+          "cpuPercent": 0.33
+        }
+      ]
+    },
+    {
+      "seconds": 277.95,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.91,
+          "cpuPercent": 13.69
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.7,
+          "cpuPercent": 2.9
+        }
+      ]
+    },
+    {
+      "seconds": 293.0,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.56,
+          "cpuPercent": 0.65
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.5,
+          "cpuPercent": 0.33
+        }
+      ]
+    },
+    {
+      "seconds": 307.05,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.1,
+          "cpuPercent": 7.03
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.3,
+          "cpuPercent": 0.27
+        }
+      ]
+    },
+    {
+      "seconds": 322.1,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.84,
+          "cpuPercent": 0.3
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.8,
+          "cpuPercent": 2.93
+        }
+      ]
+    },
+    {
+      "seconds": 337.15,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.99,
+          "cpuPercent": 0.44
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.7,
+          "cpuPercent": 0.27
+        }
+      ]
+    },
+    {
+      "seconds": 352.2,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.01,
+          "cpuPercent": 0.33
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.8,
+          "cpuPercent": 0.47
+        }
+      ]
+    },
+    {
+      "seconds": 367.25,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.7,
+          "cpuPercent": 7.36
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.1,
+          "cpuPercent": 2.64
+        }
+      ]
+    },
+    {
+      "seconds": 381.3,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.92,
+          "cpuPercent": 7.53
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.8,
+          "cpuPercent": 3.1
+        }
+      ]
+    },
+    {
+      "seconds": 395.34,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.86,
+          "cpuPercent": 0.58
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.4,
+          "cpuPercent": 3.05
+        }
+      ]
+    },
+    {
+      "seconds": 409.39,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.78,
+          "cpuPercent": 6.94
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.1,
+          "cpuPercent": 2.85
+        }
+      ]
+    },
+    {
+      "seconds": 423.44,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.68,
+          "cpuPercent": 0.75
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.2,
+          "cpuPercent": 3.14
+        }
+      ]
+    },
+    {
+      "seconds": 438.5,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.04,
+          "cpuPercent": 6.74
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.1,
+          "cpuPercent": 2.96
+        }
+      ]
+    },
+    {
+      "seconds": 452.55,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.18,
+          "cpuPercent": 6.6
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.6,
+          "cpuPercent": 2.93
+        }
+      ]
+    },
+    {
+      "seconds": 467.59,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.32,
+          "cpuPercent": 0.29
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.6,
+          "cpuPercent": 0.27
+        }
+      ]
+    },
+    {
+      "seconds": 482.64,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.14,
+          "cpuPercent": 0.66
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.9,
+          "cpuPercent": 0.49
+        }
+      ]
+    },
+    {
+      "seconds": 497.69,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 47.95,
+          "cpuPercent": 1.21
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.8,
+          "cpuPercent": 0.72
+        }
+      ]
+    },
+    {
+      "seconds": 511.74,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.7,
+          "cpuPercent": 5.54
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.7,
+          "cpuPercent": 2.69
+        }
+      ]
+    },
+    {
+      "seconds": 526.79,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.61,
+          "cpuPercent": 1.13
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.5,
+          "cpuPercent": 0.37
+        }
+      ]
+    },
+    {
+      "seconds": 540.84,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.67,
+          "cpuPercent": 0.27
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.3,
+          "cpuPercent": 0.22
+        }
+      ]
+    },
+    {
+      "seconds": 554.88,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.74,
+          "cpuPercent": 7.17
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.3,
+          "cpuPercent": 0.53
+        }
+      ]
+    },
+    {
+      "seconds": 569.92,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 49.14,
+          "cpuPercent": 8.01
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.2,
+          "cpuPercent": 0.8
+        }
+      ]
+    },
+    {
+      "seconds": 584.96,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.44,
+          "cpuPercent": 0.66
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.2,
+          "cpuPercent": 0.47
+        }
+      ]
+    },
+    {
+      "seconds": 599.0,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.86,
+          "cpuPercent": 0.29
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.2,
+          "cpuPercent": 2.71
+        }
+      ]
+    },
+    {
+      "seconds": 614.06,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.91,
+          "cpuPercent": 5.97
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.8,
+          "cpuPercent": 3.0
+        }
+      ]
+    },
+    {
+      "seconds": 629.11,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 48.98,
+          "cpuPercent": 0.55
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 108.9,
+          "cpuPercent": 2.82
+        }
+      ]
+    },
+    {
+      "seconds": 643.16,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 49.55,
+          "cpuPercent": 0.47
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.3,
+          "cpuPercent": 0.4
+        }
+      ]
+    },
+    {
+      "seconds": 657.21,
+      "containers": [
+        {
+          "name": "dnsmonitor-validation-app-1",
+          "memoryMiB": 49.32,
+          "cpuPercent": 7.16
+        },
+        {
+          "name": "dnsmonitor-validation-mariadb-1",
+          "memoryMiB": 109.0,
+          "cpuPercent": 0.38
+        }
+      ]
+    }
+  ],
+  "initial": {
+    "counts": {
+      "monitors": 25,
+      "users": 1,
+      "check_runs": 1,
+      "incidents": 0,
+      "dns_events": 0,
+      "notification_channels": 1,
+      "notification_deliveries": 0
+    },
+    "events": [],
+    "checks": [
+      {
+        "monitor_id": "e5870aea-3382-46e0-a59d-8a46216b5aa0",
+        "status": "COMPLETED",
+        "lateness_ms": "144.0000",
+        "duration_ms": "77.0000"
+      }
+    ],
+    "databaseBytes": 704512
+  },
+  "final": {
+    "counts": {
+      "monitors": 25,
+      "users": 1,
+      "check_runs": 59,
+      "incidents": 0,
+      "dns_events": 13,
+      "notification_channels": 1,
+      "notification_deliveries": 0
+    },
+    "events": [
+      {
+        "type": "BASELINE_ESTABLISHED",
+        "n": 13
+      }
+    ],
+    "checks": [
+      {
+        "id": "2312964e-0618-425c-a0f5-85368893447c",
+        "monitor_id": "e5870aea-3382-46e0-a59d-8a46216b5aa0",
+        "status": "COMPLETED",
+        "lateness_ms": "144.0000",
+        "duration_ms": "77.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "d5b8199a-2c6a-4ae6-87ca-1fb43389d6f0",
+        "monitor_id": "e1506063-9d3d-42b2-88c3-acb34e167767",
+        "status": "COMPLETED",
+        "lateness_ms": "150.0000",
+        "duration_ms": "79.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "a10ca8f8-57e4-4ec9-a615-aea85d115c2f",
+        "monitor_id": "5108d487-a8e0-423a-ad1a-5fc53d0baef7",
+        "status": "COMPLETED",
+        "lateness_ms": "1.0000",
+        "duration_ms": "82.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "7ae25a63-e3e8-44b1-addd-b4af298c9be9",
+        "monitor_id": "7457edd6-50b5-4913-b9c4-f2754c613e95",
+        "status": "COMPLETED",
+        "lateness_ms": "319.0000",
+        "duration_ms": "76.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "d76744e0-2804-4405-a61e-bc24885096c1",
+        "monitor_id": "a43de09b-3b4b-4746-afd3-cc2740b1d643",
+        "status": "COMPLETED",
+        "lateness_ms": "181.0000",
+        "duration_ms": "74.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "0a488dd6-d816-4134-a3b9-03ec9179131e",
+        "monitor_id": "29c49b39-dc50-46ab-a277-b715a07aa145",
+        "status": "COMPLETED",
+        "lateness_ms": "157.0000",
+        "duration_ms": "80.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "41692d9b-bdcf-4181-a044-d44009f30839",
+        "monitor_id": "7f9deb2c-6a7c-4a43-8f75-2df756edbd38",
+        "status": "COMPLETED",
+        "lateness_ms": "260.0000",
+        "duration_ms": "74.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "b97c4501-a9ff-44f6-836d-09448d50ae2e",
+        "monitor_id": "9b2ebac3-8eb3-4681-b6af-cf809f5fb2cb",
+        "status": "COMPLETED",
+        "lateness_ms": "305.0000",
+        "duration_ms": "77.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "e3c71d3c-b73d-4d17-b098-700e6c0d3c5c",
+        "monitor_id": "401b3ade-2b37-4d6c-867d-740e3beb3ec1",
+        "status": "COMPLETED",
+        "lateness_ms": "37.0000",
+        "duration_ms": "78.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "15a0f11b-02af-4072-a5d3-4b5326aba9d3",
+        "monitor_id": "9c07cd38-a863-4d4d-8106-d320d5cfc752",
+        "status": "COMPLETED",
+        "lateness_ms": "433.0000",
+        "duration_ms": "76.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "c59679f1-7cc3-4023-b30b-9136bd9dce23",
+        "monitor_id": "496ef858-f6ed-43d1-ad5f-b9402fedfa84",
+        "status": "COMPLETED",
+        "lateness_ms": "467.0000",
+        "duration_ms": "74.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "ea2669e9-92aa-4c58-8602-e8d80ab7c176",
+        "monitor_id": "f901946b-6610-4e8b-834c-3b89fed99dc4",
+        "status": "COMPLETED",
+        "lateness_ms": "500.0000",
+        "duration_ms": "75.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "a0bf15c3-70eb-420b-b3e1-90956518bf7b",
+        "monitor_id": "f6908db4-d094-4181-a226-d2a2fd4bec7a",
+        "status": "COMPLETED",
+        "lateness_ms": "366.0000",
+        "duration_ms": "74.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "5586e292-a545-44f9-8080-73eaba0851bd",
+        "monitor_id": "d8edd3f5-9add-4669-ada1-da2ab7ac1d82",
+        "status": "COMPLETED",
+        "lateness_ms": "169.0000",
+        "duration_ms": "73.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "4fb2a9eb-19db-45bd-bfc3-aea1680c68dc",
+        "monitor_id": "8c784776-2e9d-4cd5-85c1-abf5f5018eb2",
+        "status": "COMPLETED",
+        "lateness_ms": "239.0000",
+        "duration_ms": "77.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "0a62c47c-2990-41b8-bd60-b6e69a046d58",
+        "monitor_id": "b7d34998-c079-4009-a7d0-67ad78bff792",
+        "status": "COMPLETED",
+        "lateness_ms": "419.0000",
+        "duration_ms": "77.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "a2538400-bc47-4fe1-a00e-2b0313aacd72",
+        "monitor_id": "4eb558ff-8f19-444b-b009-380c52e25915",
+        "status": "COMPLETED",
+        "lateness_ms": "437.0000",
+        "duration_ms": "77.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "d386860c-6029-471d-8605-8f2d987eeb51",
+        "monitor_id": "103c549b-e43d-498b-801c-e7aaca28ddf0",
+        "status": "COMPLETED",
+        "lateness_ms": "225.0000",
+        "duration_ms": "83.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "29c75ae5-f931-4574-b3fb-cc899fc3afe3",
+        "monitor_id": "fcc9e987-8bac-4ffd-9e1c-2cadeabd0dc2",
+        "status": "COMPLETED",
+        "lateness_ms": "329.0000",
+        "duration_ms": "85.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "f3940729-f59e-4d58-bec5-f0e1db3b95d0",
+        "monitor_id": "52ac83fb-b38f-458d-ab95-b6fb6e537b8f",
+        "status": "COMPLETED",
+        "lateness_ms": "254.0000",
+        "duration_ms": "79.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "6e4c9a04-5339-4de2-a89f-f97003932d66",
+        "monitor_id": "5b77db6b-3fb7-47ed-91c9-b18c6e488a5b",
+        "status": "COMPLETED",
+        "lateness_ms": "214.0000",
+        "duration_ms": "76.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "bf9ed780-fe7c-42df-bc04-caa7fdce9222",
+        "monitor_id": "5192f897-db2e-487b-8dd2-cc70e006ff0e",
+        "status": "COMPLETED",
+        "lateness_ms": "414.0000",
+        "duration_ms": "69.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "68e0a45b-5fe9-41be-aa73-695d74ee7e3e",
+        "monitor_id": "5d0e80a7-8773-47e4-ad3f-21cc1b469edc",
+        "status": "COMPLETED",
+        "lateness_ms": "39.0000",
+        "duration_ms": "77.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "785ca156-a7ec-438a-8425-9c3a200fbdff",
+        "monitor_id": "c4776c95-2f1d-4a05-b735-05909705fcac",
+        "status": "COMPLETED",
+        "lateness_ms": "96.0000",
+        "duration_ms": "72.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "ea557737-582c-4acb-bc77-1ffbfe45cc55",
+        "monitor_id": "18b6dfc5-7e32-4d84-92c5-723843eef594",
+        "status": "COMPLETED",
+        "lateness_ms": "32.0000",
+        "duration_ms": "74.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "3d0ce219-4b39-4715-9b1a-3ac932615d57",
+        "monitor_id": "e5870aea-3382-46e0-a59d-8a46216b5aa0",
+        "status": "COMPLETED",
+        "lateness_ms": "484.0000",
+        "duration_ms": "66.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "e5b75338-b63f-40fa-93e0-930e38076955",
+        "monitor_id": "e1506063-9d3d-42b2-88c3-acb34e167767",
+        "status": "COMPLETED",
+        "lateness_ms": "445.0000",
+        "duration_ms": "72.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "51a3e014-64c4-435a-a280-122cd01f468c",
+        "monitor_id": "5108d487-a8e0-423a-ad1a-5fc53d0baef7",
+        "status": "COMPLETED",
+        "lateness_ms": "253.0000",
+        "duration_ms": "65.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "7bb9c54f-85d0-4c12-b781-f6bc014a15d1",
+        "monitor_id": "7457edd6-50b5-4913-b9c4-f2754c613e95",
+        "status": "COMPLETED",
+        "lateness_ms": "66.0000",
+        "duration_ms": "75.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "acfe300c-d665-49de-8f3c-3b6fde84eebf",
+        "monitor_id": "a43de09b-3b4b-4746-afd3-cc2740b1d643",
+        "status": "COMPLETED",
+        "lateness_ms": "428.0000",
+        "duration_ms": "80.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "e7ee976c-ba9c-441c-804d-e280a57998cb",
+        "monitor_id": "29c49b39-dc50-46ab-a277-b715a07aa145",
+        "status": "COMPLETED",
+        "lateness_ms": "396.0000",
+        "duration_ms": "75.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "259f26c6-ab04-4b67-8b65-cf2d097e8d27",
+        "monitor_id": "7f9deb2c-6a7c-4a43-8f75-2df756edbd38",
+        "status": "COMPLETED",
+        "lateness_ms": "494.0000",
+        "duration_ms": "73.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "c58d8b0d-83c1-4357-829c-ea3540b40a8c",
+        "monitor_id": "9b2ebac3-8eb3-4681-b6af-cf809f5fb2cb",
+        "status": "COMPLETED",
+        "lateness_ms": "20.0000",
+        "duration_ms": "74.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "6bbeae00-dfce-46bb-8942-d91d37fe971d",
+        "monitor_id": "401b3ade-2b37-4d6c-867d-740e3beb3ec1",
+        "status": "COMPLETED",
+        "lateness_ms": "251.0000",
+        "duration_ms": "80.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "9b2a4dc6-7f6f-4605-975a-bca38c61fb82",
+        "monitor_id": "9c07cd38-a863-4d4d-8106-d320d5cfc752",
+        "status": "COMPLETED",
+        "lateness_ms": "144.0000",
+        "duration_ms": "73.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "f1d63e3d-7ce1-442a-b4a6-f835e3b1d0a3",
+        "monitor_id": "496ef858-f6ed-43d1-ad5f-b9402fedfa84",
+        "status": "COMPLETED",
+        "lateness_ms": "199.0000",
+        "duration_ms": "73.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "5615af72-11f8-4957-883b-939d87e7527c",
+        "monitor_id": "f901946b-6610-4e8b-834c-3b89fed99dc4",
+        "status": "COMPLETED",
+        "lateness_ms": "231.0000",
+        "duration_ms": "75.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "7f18f8cb-d4a2-4b82-a332-c496de43f00e",
+        "monitor_id": "f6908db4-d094-4181-a226-d2a2fd4bec7a",
+        "status": "COMPLETED",
+        "lateness_ms": "112.0000",
+        "duration_ms": "80.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "ff222e1b-34a2-4723-a060-365bb3b52677",
+        "monitor_id": "d8edd3f5-9add-4669-ada1-da2ab7ac1d82",
+        "status": "COMPLETED",
+        "lateness_ms": "461.0000",
+        "duration_ms": "78.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "9d80d3a1-2ce8-418d-a2ff-65242c04ce93",
+        "monitor_id": "8c784776-2e9d-4cd5-85c1-abf5f5018eb2",
+        "status": "COMPLETED",
+        "lateness_ms": "112.0000",
+        "duration_ms": "78.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "3d52ce24-d56e-42bd-b4ec-9e07bf98bd45",
+        "monitor_id": "b7d34998-c079-4009-a7d0-67ad78bff792",
+        "status": "COMPLETED",
+        "lateness_ms": "287.0000",
+        "duration_ms": "79.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "019815ce-9b36-4496-b8ec-9008e65fc055",
+        "monitor_id": "4eb558ff-8f19-444b-b009-380c52e25915",
+        "status": "COMPLETED",
+        "lateness_ms": "270.0000",
+        "duration_ms": "66.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "a03cd2ca-3e54-4753-a8ce-66b7ebe0f6e4",
+        "monitor_id": "103c549b-e43d-498b-801c-e7aaca28ddf0",
+        "status": "COMPLETED",
+        "lateness_ms": "492.0000",
+        "duration_ms": "78.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "fa729746-5dec-4d14-a3d7-8eb583416892",
+        "monitor_id": "fcc9e987-8bac-4ffd-9e1c-2cadeabd0dc2",
+        "status": "COMPLETED",
+        "lateness_ms": "85.0000",
+        "duration_ms": "78.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "d8fba471-003e-4932-906c-82dd6c85e3a9",
+        "monitor_id": "52ac83fb-b38f-458d-ab95-b6fb6e537b8f",
+        "status": "COMPLETED",
+        "lateness_ms": "502.0000",
+        "duration_ms": "78.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "4a6a1923-c10e-43a6-af19-a58d0c250fbf",
+        "monitor_id": "5b77db6b-3fb7-47ed-91c9-b18c6e488a5b",
+        "status": "COMPLETED",
+        "lateness_ms": "387.0000",
+        "duration_ms": "80.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "41ace5cd-f3df-4b9e-9fa3-df2a899a9c40",
+        "monitor_id": "5192f897-db2e-487b-8dd2-cc70e006ff0e",
+        "status": "COMPLETED",
+        "lateness_ms": "80.0000",
+        "duration_ms": "77.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "7de040af-94fb-44fa-b799-ecf89ad86fec",
+        "monitor_id": "5d0e80a7-8773-47e4-ad3f-21cc1b469edc",
+        "status": "COMPLETED",
+        "lateness_ms": "183.0000",
+        "duration_ms": "70.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "b6c7d7bf-e3db-4f3f-b48a-e015a13a5367",
+        "monitor_id": "c4776c95-2f1d-4a05-b735-05909705fcac",
+        "status": "COMPLETED",
+        "lateness_ms": "239.0000",
+        "duration_ms": "80.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "62d9c24a-29a8-49f6-b601-e58c834dce10",
+        "monitor_id": "18b6dfc5-7e32-4d84-92c5-723843eef594",
+        "status": "COMPLETED",
+        "lateness_ms": "195.0000",
+        "duration_ms": "76.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "25408975-1d4e-4b99-bdb0-dc46c2575825",
+        "monitor_id": "e5870aea-3382-46e0-a59d-8a46216b5aa0",
+        "status": "COMPLETED",
+        "lateness_ms": "150.0000",
+        "duration_ms": "72.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "14df0cd0-b997-4bea-b176-dd03f859946c",
+        "monitor_id": "e1506063-9d3d-42b2-88c3-acb34e167767",
+        "status": "COMPLETED",
+        "lateness_ms": "159.0000",
+        "duration_ms": "73.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "24fcd06b-2c77-4e43-907e-a7da45e8fbda",
+        "monitor_id": "5108d487-a8e0-423a-ad1a-5fc53d0baef7",
+        "status": "COMPLETED",
+        "lateness_ms": "17.0000",
+        "duration_ms": "81.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "7ccea248-60f5-472b-a7d7-ef969f32caf5",
+        "monitor_id": "7457edd6-50b5-4913-b9c4-f2754c613e95",
+        "status": "COMPLETED",
+        "lateness_ms": "337.0000",
+        "duration_ms": "76.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "1917b05e-5a42-4888-8d35-64e0f724642f",
+        "monitor_id": "a43de09b-3b4b-4746-afd3-cc2740b1d643",
+        "status": "COMPLETED",
+        "lateness_ms": "203.0000",
+        "duration_ms": "79.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "330953b3-b3cb-4423-8664-9df972d07f4a",
+        "monitor_id": "29c49b39-dc50-46ab-a277-b715a07aa145",
+        "status": "COMPLETED",
+        "lateness_ms": "159.0000",
+        "duration_ms": "74.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "12d6b1fe-4ed8-4037-9310-1a988aefd8ed",
+        "monitor_id": "7f9deb2c-6a7c-4a43-8f75-2df756edbd38",
+        "status": "COMPLETED",
+        "lateness_ms": "260.0000",
+        "duration_ms": "73.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "091008cb-07d9-4224-9ed2-6a836df3ff47",
+        "monitor_id": "9b2ebac3-8eb3-4681-b6af-cf809f5fb2cb",
+        "status": "COMPLETED",
+        "lateness_ms": "290.0000",
+        "duration_ms": "73.0000",
+        "successfulResolvers": 3
+      },
+      {
+        "id": "c4760d35-ba3a-4bf0-8c64-9ffbb1e1f9b4",
+        "monitor_id": "401b3ade-2b37-4d6c-867d-740e3beb3ec1",
+        "status": "COMPLETED",
+        "lateness_ms": "8.0000",
+        "duration_ms": "69.0000",
+        "successfulResolvers": 3
+      }
+    ],
+    "states": [
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY",
+      "HEALTHY"
+    ],
+    "databaseBytes": 753664
+  },
+  "architecture": "aarch64",
+  "docker": "29.7.2",
+  "imageId": "sha256:d1b0c24f3a1ddd6306272c38ee9a702b6ce441c10284ddabb72eb76c06a73f5d",
+  "dockerVmMemoryBytes": 8319504384,
+  "dockerVmCpus": 10
+}

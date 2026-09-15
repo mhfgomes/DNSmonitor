@@ -1,0 +1,16 @@
+name: dnsmonitor-tests
+services:
+  mariadb:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: dnsmonitor_test
+      MARIADB_USER: dnsmonitor_test
+      MARIADB_PASSWORD: test-only-password
+      MARIADB_ROOT_PASSWORD: test-only-root
+    ports: ["127.0.0.1:13306:3306"]
+    tmpfs: [/var/lib/mysql]
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 2s
+      timeout: 3s
+      retries: 30

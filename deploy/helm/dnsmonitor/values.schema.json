@@ -1,0 +1,241 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "enum": [
+        "combined",
+        "split"
+      ]
+    },
+    "existingSecret": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publicUrl": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "cookieSecure": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^$|^sha256:[a-f0-9]{64}$"
+        },
+        "pullPolicy": {
+          "enum": [
+            "Always",
+            "IfNotPresent",
+            "Never"
+          ]
+        }
+      }
+    },
+    "app": {
+      "type": "object",
+      "properties": {
+        "replicas": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "resources": {
+          "type": "object"
+        }
+      }
+    },
+    "worker": {
+      "type": "object",
+      "properties": {
+        "replicas": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "concurrency": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "resources": {
+          "type": "object"
+        }
+      }
+    },
+    "database": {
+      "type": "object",
+      "properties": {
+        "bundled": {
+          "type": "boolean"
+        },
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "user": {
+          "type": "string",
+          "minLength": 1
+        },
+        "image": {
+          "type": "string",
+          "minLength": 1
+        },
+        "maxConnections": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 100000
+        },
+        "storage": {
+          "type": "object",
+          "properties": {
+            "size": {
+              "type": "string",
+              "minLength": 1
+            },
+            "storageClass": {
+              "type": "string"
+            },
+            "existingClaim": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "migration": {
+      "type": "object",
+      "properties": {
+        "timeoutSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3600
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        }
+      }
+    },
+    "ingress": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "host": {
+          "type": "string"
+        },
+        "className": {
+          "type": "string"
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "tls": {
+          "type": "array"
+        }
+      }
+    },
+    "networkPolicy": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "summaryDays": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3650
+        },
+        "eventDays": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3650
+        },
+        "incidentDays": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3650
+        },
+        "deliveryDays": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3650
+        },
+        "auditDays": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3650
+        },
+        "checkHours": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 87600
+        },
+        "batchSize": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "intervalSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3600
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "host": {
+          "type": "string",
+          "enum": [
+            "127.0.0.1",
+            "0.0.0.0",
+            "::1"
+          ]
+        }
+      }
+    }
+  }
+}

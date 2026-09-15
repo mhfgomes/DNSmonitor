@@ -1,0 +1,61 @@
+name: dnsmonitor-validation
+services:
+  mariadb:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: dnsmonitor_validation_test
+      MARIADB_USER: dnsmonitor
+      MARIADB_PASSWORD: validation-only-password
+      MARIADB_ROOT_PASSWORD: validation-only-root
+    command:
+      [
+        "--innodb-buffer-pool-size=64M",
+        "--max-connections=30",
+        "--performance-schema=OFF",
+      ]
+    volumes: ["database:/var/lib/mysql"]
+    mem_limit: ${VALIDATION_DB_MEMORY:-256m}
+    cpus: 0.5
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 2s
+      timeout: 3s
+      retries: 45
+  fixture:
+    image: dnsmonitor:validation
+    command: ["node", "scripts/validation/fixture.mjs"]
+    volumes: ["../scripts/validation:/app/scripts/validation:ro"]
+    read_only: true
+    cap_drop: [ALL]
+  app:
+    image: dnsmonitor:validation
+    environment:
+      DATABASE_HOST: mariadb
+      DATABASE_NAME: dnsmonitor_validation_test
+      DATABASE_PASSWORD: validation-only-password
+      ENCRYPTION_KEY: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      COOKIE_SECURE: "false"
+      PUBLIC_URL: http://localhost:3000
+      RUN_MIGRATIONS: "true"
+      WORKER_CONCURRENCY: "2"
+    volumes: ["../scripts/validation:/app/scripts/validation:ro"]
+    mem_limit: ${VALIDATION_APP_MEMORY:-192m}
+    cpus: 0.5
+    read_only: true
+    cap_drop: [ALL]
+    stop_grace_period: 45s
+    depends_on:
+      mariadb: { condition: service_healthy }
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://localhost:3000/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+volumes:
+  database:

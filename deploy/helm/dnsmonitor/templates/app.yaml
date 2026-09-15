@@ -1,0 +1,117 @@
+{{- if le (mul (int .Values.retention.summaryDays) 24) (int .Values.retention.checkHours) }}{{ fail "summaryDays must exceed checkHours / 24" }}{{ end -}}
+{{- if and .Values.database.bundled (ne (int .Values.database.port) 3306) }}{{ fail "bundled database.port must be 3306" }}{{ end -}}
+{{- if not (has .Values.mode (list "combined" "split")) }}{{ fail "mode must be combined or split" }}{{ end -}}
+{{- if and (not .Values.database.bundled) (not .Values.database.host) }}{{ fail "database.host is required for an external database" }}{{ end -}}
+{{- if lt (int .Values.app.replicas) 1 }}{{ fail "app.replicas must be positive" }}{{ end -}}
+{{- if and (eq .Values.mode "split") (lt (int .Values.worker.replicas) 1) }}{{ fail "split mode requires at least one worker" }}{{ end -}}
+{{- $root := . -}}
+{{- $components := list "app" -}}
+{{- if eq .Values.mode "split" }}{{ $components = append $components "worker" }}{{ end -}}
+{{- range $component := $components }}
+{{- $worker := eq $component "worker" }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "dnsmonitor.name" $root }}-{{ $component }}
+spec:
+  replicas: {{ ternary $root.Values.worker.replicas $root.Values.app.replicas $worker }}
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: {{ $root.Release.Name }}
+      app.kubernetes.io/component: {{ $component }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: {{ $root.Release.Name }}
+        app.kubernetes.io/component: {{ $component }}
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 45
+      securityContext:
+        fsGroup: 1000
+        seccompProfile: { type: RuntimeDefault }
+      imagePullSecrets: {{ $root.Values.imagePullSecrets | toJson }}
+      nodeSelector: {{ $root.Values.nodeSelector | toJson }}
+      tolerations: {{ $root.Values.tolerations | toJson }}
+      initContainers:
+        - name: wait-schema
+          image: {{ include "dnsmonitor.image" $root | quote }}
+          imagePullPolicy: {{ $root.Values.image.pullPolicy }}
+          command: ["node", "dist/apps/cli/src/bootstrap.js", "wait"]
+          env:
+            {{- include "dnsmonitor.dbEnv" $root | nindent 12 }}
+          securityContext:
+            {{- include "dnsmonitor.security" $root | nindent 12 }}
+          resources: {{ $root.Values.migration.resources | toJson }}
+          volumeMounts:
+            - { name: app-secrets, mountPath: /run/secrets, readOnly: true }
+      containers:
+        - name: {{ $component }}
+          image: {{ include "dnsmonitor.image" $root | quote }}
+          imagePullPolicy: {{ $root.Values.image.pullPolicy }}
+          securityContext:
+            {{- include "dnsmonitor.security" $root | nindent 12 }}
+          resources: {{ ternary $root.Values.worker.resources $root.Values.app.resources $worker | toJson }}
+          env:
+            {{- include "dnsmonitor.dbEnv" $root | nindent 12 }}
+            - name: RUNTIME_ROLE
+              value: {{ ternary "worker" (ternary "all" "api" (eq $root.Values.mode "combined")) $worker | quote }}
+            - name: ENCRYPTION_KEY_FILE
+              value: /run/secrets/encryption-key
+            - name: METRICS_ENABLED
+              value: {{ $root.Values.metrics.enabled | quote }}
+            - name: METRICS_HOST
+              value: {{ $root.Values.metrics.host | quote }}
+            - name: SETUP_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $root.Values.existingSecret }}
+                  key: setup-token
+                  optional: true
+            - name: PUBLIC_URL
+              value: {{ $root.Values.publicUrl | quote }}
+            - name: COOKIE_SECURE
+              value: {{ $root.Values.cookieSecure | quote }}
+            - name: WORKER_CONCURRENCY
+              value: {{ $root.Values.worker.concurrency | quote }}
+            {{- range $key, $value := dict "ENABLED" $root.Values.retention.enabled "CHECK_HOURS" $root.Values.retention.checkHours "SUMMARY_DAYS" $root.Values.retention.summaryDays "EVENT_DAYS" $root.Values.retention.eventDays "INCIDENT_DAYS" $root.Values.retention.incidentDays "DELIVERY_DAYS" $root.Values.retention.deliveryDays "AUDIT_DAYS" $root.Values.retention.auditDays "BATCH_SIZE" $root.Values.retention.batchSize "INTERVAL_SECONDS" $root.Values.retention.intervalSeconds }}
+            - name: RETENTION_{{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ ternary 3001 3000 $worker }}
+          startupProbe:
+            httpGet: { path: /health/live, port: http }
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            httpGet: { path: /health/ready, port: http }
+            periodSeconds: 5
+            timeoutSeconds: 3
+          livenessProbe:
+            httpGet: { path: /health/live, port: http }
+            periodSeconds: 10
+            timeoutSeconds: 3
+          volumeMounts:
+            - { name: app-secrets, mountPath: /run/secrets, readOnly: true }
+      volumes:
+        {{- include "dnsmonitor.secretVolume" $root | nindent 8 }}
+{{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "dnsmonitor.name" . }}
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: app
+  ports:
+    - { name: http, port: {{ .Values.service.port }}, targetPort: http }

@@ -1,0 +1,36 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.24.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: azure/setup-helm@v4
+        with:
+          version: v3.19.0
+      - run: scripts/check-deployments.sh
+      - run: node scripts/release/check.mjs
+      - run: pnpm check
+      - run: docker compose -f deploy/compose.test.yaml up -d --wait
+      - run: pnpm test:integration
+        env:
+          INTEGRATION_DATABASE_URL: mysql://dnsmonitor_test:test-only-password@127.0.0.1:13306/dnsmonitor_test
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:e2e
+        env:
+          INTEGRATION_DATABASE_URL: mysql://dnsmonitor_test:test-only-password@127.0.0.1:13306/dnsmonitor_test
+      - run: pnpm exec playwright test accounts.spec.ts
+        env:
+          E2E_SETUP: '1'
+          INTEGRATION_DATABASE_URL: mysql://dnsmonitor_test:test-only-password@127.0.0.1:13306/dnsmonitor_test
+      - run: docker build -t dnsmonitor:ci .
+      - if: always()
+        run: docker compose -f deploy/compose.test.yaml down

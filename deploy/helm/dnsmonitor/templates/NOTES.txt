@@ -1,0 +1,11 @@
+DNSmonitor: {{ include "dnsmonitor.name" . }}
+
+Wait for the migration Job and application readiness:
+  kubectl -n {{ .Release.Namespace }} get jobs,pods,pvc
+
+For local access:
+  kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "dnsmonitor.name" . }} 3000:{{ .Values.service.port }}
+
+Use PUBLIC_URL/publicUrl matching your actual browser origin.
+Provision an administrator as described in docs/DEPLOYMENT.md.
+Keep the database and encryption key together in your backup process.
