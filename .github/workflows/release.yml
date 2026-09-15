@@ -39,7 +39,7 @@ jobs:
         run: |
           node scripts/release/check.mjs
           test "$(git rev-parse HEAD)" = "$(git rev-parse "refs/tags/$RELEASE_TAG^{commit}")"
-      - uses: azure/setup-helm@v4
+      - uses: azure/setup-helm@v5
         with:
           version: v3.19.0
       - uses: pnpm/action-setup@v4
