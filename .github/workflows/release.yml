@@ -9,7 +9,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: release-${{ inputs.tag }}
+  group: dockerhub-release
   cancel-in-progress: false
 jobs:
   publish:
@@ -86,3 +86,8 @@ jobs:
           printf '%s@%s\n' "$IMAGE" "$DIGEST" > dist/release/IMAGE.txt
           (cd dist/release && sha256sum IMAGE.txt >> SHA256SUMS)
           gh release create "$RELEASE_TAG" --verify-tag --title "DNSmonitor $RELEASE_TAG" --notes-file CHANGELOG.md dist/release/*
+      - name: Update latest image tag
+        env:
+          IMAGE: ${{ steps.image.outputs.name }}
+          DIGEST: ${{ steps.build.outputs.digest }}
+        run: docker buildx imagetools create --tag "$IMAGE:latest" "$IMAGE@$DIGEST"
