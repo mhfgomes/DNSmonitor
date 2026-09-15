@@ -76,7 +76,7 @@ jobs:
             SOURCE_URL=${{ github.server_url }}/${{ github.repository }}
           provenance: true
           sbom: true
-      - name: Create draft release with artifacts
+      - name: Publish release with artifacts
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ inputs.tag }}
@@ -85,4 +85,4 @@ jobs:
         run: |
           printf '%s@%s\n' "$IMAGE" "$DIGEST" > dist/release/IMAGE.txt
           (cd dist/release && sha256sum IMAGE.txt >> SHA256SUMS)
-          gh release create "$RELEASE_TAG" --verify-tag --draft --title "DNSmonitor $RELEASE_TAG" --notes-file CHANGELOG.md dist/release/*
+          gh release create "$RELEASE_TAG" --verify-tag --title "DNSmonitor $RELEASE_TAG" --notes-file CHANGELOG.md dist/release/*

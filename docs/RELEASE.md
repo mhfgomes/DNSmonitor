@@ -1,6 +1,6 @@
 # Preparing and publishing v0.1.0
 
-The release files are prepared locally. Creating this workflow or building a bundle does not publish anything. The repository currently needs a GitHub remote and a committed version tag before the publishing workflow can run.
+Releases are published through GitHub Actions in `mhfgomes/DNSmonitor` from an existing version tag. Building a local bundle does not publish anything.
 
 ## Local preparation
 
@@ -24,9 +24,9 @@ Version `0.1.0` is recorded in package.json, the Helm chart and the OCI image la
 3. Add a repository or `release` environment Actions secret named `DOCKERHUB_TOKEN`: a Docker Hub access token for `mhfgomes` with write access to `mhfgomes/dnsmonitor`. A local `docker login` does not authenticate GitHub Actions. Do not put this token in Git or workflow YAML.
 4. Create and push `v0.1.0` pointing to that reviewed commit.
 5. Manually run **Publish versioned release** with tag `v0.1.0` from the trusted default branch. The workflow verifies the tag, version consistency, build checks and deployment templates.
-6. The workflow publishes `mhfgomes/dnsmonitor:0.1.0` for Linux AMD64 and ARM64, with source/version/revision labels, provenance and SBOM. It then creates a **draft GitHub release** containing deployment artifacts and the image digest. Review the draft before making it public.
+6. The workflow publishes `mhfgomes/dnsmonitor:0.1.0` for Linux AMD64 and ARM64, with source/version/revision labels, provenance and SBOM. It then publishes a GitHub release containing deployment artifacts and the image digest.
 
-Dispatching this workflow publishes the image even though the GitHub release remains a draft. Create `mhfgomes/dnsmonitor` in Docker Hub with the intended public/private visibility before dispatching. The workflow deliberately does not move a `latest` tag. A failed draft-release step can leave a successfully published image, so inspect the registry before retrying. Treat version tags as immutable; choose a new patch version for changed source.
+Dispatching this workflow publishes both the image and the GitHub release. Create `mhfgomes/dnsmonitor` in Docker Hub with the intended public/private visibility before dispatching. The workflow deliberately does not move a `latest` tag. A failed GitHub release step can leave a successfully published image, so inspect the registry before retrying. Treat version tags as immutable; choose a new patch version for changed source.
 
 ## Install from release artifacts
 

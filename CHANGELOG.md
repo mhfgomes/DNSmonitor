@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — release candidate, not yet published
+## 0.1.0 — 2026-09-15
 
 First release of DNSmonitor, a shared, self-hosted DNS monitoring application.
 
